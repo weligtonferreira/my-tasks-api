@@ -10,6 +10,12 @@ class App {
 
   constructor() {
     this.app = express();
+    this.middlewares();
+  }
+
+  middlewares() {
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: true }));
   }
 }
 
