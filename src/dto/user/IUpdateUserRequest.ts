@@ -1,5 +1,3 @@
-export interface IUpdateUserRequest {
-  name?: string;
-  email?: string;
-  password?: string;
-}
+import { ICreateUserRequest } from './ICreateUserRequest';
+
+export interface IUpdateUserRequest extends Partial<ICreateUserRequest> {}
