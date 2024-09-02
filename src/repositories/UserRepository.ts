@@ -36,6 +36,7 @@ class UserRepository implements IUserRepository {
             id: true,
             title: true,
             description: true,
+            isCompleted: true,
             createdAt: true,
             updatedAt: true,
             userId: true,
