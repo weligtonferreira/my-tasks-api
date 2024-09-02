@@ -7,7 +7,7 @@ import { handleExceptions } from './middlewares/handleExceptions';
 
 import userRoutes from './routes/user.routes';
 
-dotenv.config({ path: path.resolve() + '/.env.local' });
+dotenv.config({ path: path.resolve() + '/.env' });
 
 class App {
   app: Express;
