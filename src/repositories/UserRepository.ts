@@ -50,9 +50,7 @@ class UserRepository implements IUserRepository {
   }
 
   async findByEmail(email: string): Promise<User | null> {
-    return await prismaClient.user.findUnique({
-      where: { email },
-    });
+    return await prismaClient.user.findUnique({ where: { email } });
   }
 
   async findAll(): Promise<User[] | null> {
@@ -70,9 +68,7 @@ class UserRepository implements IUserRepository {
   }
 
   async deleteById(id: string): Promise<void> {
-    await prismaClient.user.delete({
-      where: { id },
-    });
+    await prismaClient.user.delete({ where: { id } });
   }
 }
 
