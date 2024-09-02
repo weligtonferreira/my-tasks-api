@@ -12,7 +12,7 @@ class UserRepository implements IUserRepository {
 
     return await prismaClient.user.create({
       data: {
-        password: bcrypt.hashSync(password, 8),
+        password: await bcrypt.hash(password, 8),
         ...rest,
       },
     });
