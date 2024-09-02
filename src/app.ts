@@ -5,6 +5,8 @@ import path from 'path';
 
 import { handleExceptions } from './middlewares/handleExceptions';
 
+import userRoutes from './routes/user.routes';
+
 dotenv.config({ path: path.resolve() + '/.env.local' });
 
 class App {
@@ -13,6 +15,7 @@ class App {
   constructor() {
     this.app = express();
     this.middlewares();
+    this.routes();
     this.handlers();
   }
 
@@ -23,6 +26,10 @@ class App {
 
   handlers() {
     this.app.use(handleExceptions);
+  }
+
+  routes() {
+    this.app.use('/users', userRoutes);
   }
 }
 
