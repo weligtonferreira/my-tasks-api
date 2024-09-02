@@ -8,7 +8,13 @@ class ListUserController {
 
     const user = await ListUserService.execute(id);
 
-    return res.status(200).json(user);
+    return res.status(200).json({
+      id: user?.id,
+      name: user?.name,
+      email: user?.email,
+      tasksCount: user?._count.tasks,
+      tasks: user?.tasks,
+    });
   }
 }
 
