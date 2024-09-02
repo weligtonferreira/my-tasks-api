@@ -5,6 +5,7 @@ import * as bcrypt from 'bcrypt';
 import { ICreateUserRequest } from '../dto/user/ICreateUserRequest';
 import { IUpdateUserRequest } from '../dto/user/IUpdateUserRequest';
 import { IUserRepository } from '../dto/user/IUserRepository';
+import { IUserResponse } from '../dto/user/IUserResponse';
 
 class UserRepository implements IUserRepository {
   async create(createUserInputData: ICreateUserRequest): Promise<User | null> {
@@ -18,9 +19,32 @@ class UserRepository implements IUserRepository {
     });
   }
 
-  async findById(id: string): Promise<User | null> {
+  async findById(id: string): Promise<IUserResponse | null> {
     return await prismaClient.user.findUnique({
       where: { id },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        _count: {
+          select: {
+            tasks: true,
+          },
+        },
+        tasks: {
+          select: {
+            id: true,
+            title: true,
+            description: true,
+            createdAt: true,
+            updatedAt: true,
+            userId: true,
+          },
+          orderBy: {
+            createdAt: 'asc',
+          },
+        },
+      },
     });
   }
 
