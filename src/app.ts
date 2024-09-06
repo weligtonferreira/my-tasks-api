@@ -1,6 +1,7 @@
 import express, { Express } from 'express';
 import 'express-async-errors';
 import * as dotenv from 'dotenv';
+import cors from 'cors';
 import path from 'path';
 
 import { handleExceptions } from './middlewares/handleExceptions';
@@ -20,6 +21,7 @@ class App {
   }
 
   middlewares() {
+    this.app.use(cors());
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
   }
