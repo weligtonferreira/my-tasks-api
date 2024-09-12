@@ -24,7 +24,7 @@ class AuthenticateUserService {
       throw new ApplicationErrors('Email or password is invalid', 400);
     }
 
-    const payload = { userId: userExists.id };
+    const payload = { name: userExists.name };
 
     const jwtSecretKey = process.env.JWT_SECRET_KEY || '';
 
