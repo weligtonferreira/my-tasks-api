@@ -7,6 +7,7 @@ import path from 'path';
 import { handleExceptions } from './middlewares/handleExceptions';
 
 import userRoutes from './routes/user.routes';
+import taskRoutes from './routes/task.routes';
 
 dotenv.config({ path: path.resolve() + '/.env' });
 
@@ -32,6 +33,7 @@ class App {
 
   routes() {
     this.app.use('/users', userRoutes);
+    this.app.use('/tasks', taskRoutes);
   }
 }
 
