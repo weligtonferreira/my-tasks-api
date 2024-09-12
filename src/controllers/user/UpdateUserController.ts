@@ -6,9 +6,9 @@ import { IUpdateUserRequest } from '../../dto/user/IUpdateUserRequest';
 class UpdateUserController {
   async handle(req: Request, res: Response) {
     const { id } = req.params;
-    const { name, email, password }: IUpdateUserRequest = req.body;
+    const updateUserInputData: IUpdateUserRequest = req.body;
 
-    await UpdateUserService.execute(id, { name, email, password });
+    await UpdateUserService.execute(id, updateUserInputData);
 
     return res.status(200).json({ message: 'User has been updated' });
   }
