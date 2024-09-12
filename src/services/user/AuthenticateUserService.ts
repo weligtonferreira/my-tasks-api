@@ -26,7 +26,7 @@ class AuthenticateUserService {
 
     const payload = { name: userExists.name };
 
-    const jwtSecretKey = process.env.JWT_SECRET_KEY || '';
+    const jwtSecretKey = process.env.JWT_SECRET_KEY as string;
 
     const signOptions: SignOptions = {
       expiresIn: '4d',
