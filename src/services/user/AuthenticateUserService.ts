@@ -30,7 +30,7 @@ class AuthenticateUserService {
 
     const signOptions: SignOptions = {
       expiresIn: '4d',
-      subject: payload.userId,
+      subject: userExists.id,
     };
 
     const jwtToken = sign(payload, jwtSecretKey, signOptions);
