@@ -14,6 +14,8 @@ class ListUserController {
       email: user?.email,
       tasksCount: user?._count.tasks,
       tasks: user?.tasks,
+      createdAt: user?.createdAt,
+      updatedAt: user?.updatedAt,
     });
   }
 }
