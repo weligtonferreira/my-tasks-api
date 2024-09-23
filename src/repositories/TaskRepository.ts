@@ -40,6 +40,15 @@ class TaskRepository implements ITaskRepository {
   async deleteById(id: string): Promise<void> {
     await prismaClient.task.delete({ where: { id } });
   }
+
+  async changeTaskStatusById(id: string, isCompleted: boolean) {
+    await prismaClient.task.update({
+      where: { id },
+      data: {
+        isCompleted,
+      },
+    });
+  }
 }
 
 export default new TaskRepository();
