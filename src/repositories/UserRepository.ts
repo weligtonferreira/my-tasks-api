@@ -45,6 +45,8 @@ class UserRepository implements IUserRepository {
             createdAt: 'asc',
           },
         },
+        createdAt: true,
+        updatedAt: true,
       },
     });
   }
