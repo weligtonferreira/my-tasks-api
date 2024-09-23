@@ -8,4 +8,6 @@ export interface IUserResponse {
   email: string;
   _count: ITasksCount;
   tasks: Task[];
+  createdAt: Date;
+  updatedAt: Date;
 }
