@@ -16,4 +16,5 @@ export interface ITaskRepository {
     updateTaskInputData: IUpdateTaskRequest
   ) => Promise<void>;
   deleteById: (id: string) => Promise<void>;
+  changeTaskStatusById: (id: string, isCompleted: boolean) => Promise<void>;
 }
