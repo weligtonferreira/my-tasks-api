@@ -9,7 +9,9 @@ export function handleExceptions(
   next: NextFunction
 ) {
   if (err instanceof ApplicationErrors) {
-    return res.status(err.statusCode).json({ error: err.message });
+    return res
+      .status(err.statusCode)
+      .json({ message: err.message, statusCode: err.statusCode });
   }
 
   return res.status(500).json({
