@@ -11,7 +11,7 @@ class CreateUserService {
     );
 
     if (userAlreadyExists)
-      throw new ApplicationErrors('User already exists', 400);
+      throw new ApplicationErrors('User already exists', 409);
 
     const user = await UserRepository.create(createUserInputData);
 
