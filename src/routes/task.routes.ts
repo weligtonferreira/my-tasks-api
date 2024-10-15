@@ -1,5 +1,7 @@
 import { Router } from 'express';
 
+import { verifyJwtToken } from '../middlewares/verifyJwtToken';
+
 import CreateTaskController from '../controllers/task/CreateTaskController';
 import ListTasksController from '../controllers/task/ListTasksController';
 import ListTaskController from '../controllers/task/ListTaskController';
@@ -9,11 +11,11 @@ import ChangeTaskStatusController from '../controllers/task/ChangeTaskStatusCont
 
 const router = Router();
 
-router.post('/:userId', CreateTaskController.handle);
-router.get('/', ListTasksController.handle);
-router.get('/:id', ListTaskController.handle);
-router.put('/:id', UpdateTaskController.handle);
-router.delete('/:id', DeleteTaskController.handle);
-router.patch('/:id', ChangeTaskStatusController.handle);
+router.post('/:userId', verifyJwtToken, CreateTaskController.handle);
+router.get('/', verifyJwtToken, ListTasksController.handle);
+router.get('/:id', verifyJwtToken, ListTaskController.handle);
+router.put('/:id', verifyJwtToken, UpdateTaskController.handle);
+router.delete('/:id', verifyJwtToken, DeleteTaskController.handle);
+router.patch('/:id', verifyJwtToken, ChangeTaskStatusController.handle);
 
 export default router;
