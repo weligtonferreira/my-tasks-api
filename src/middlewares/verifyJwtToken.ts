@@ -3,7 +3,7 @@ import { verify } from 'jsonwebtoken';
 
 import { IJwtTokenPayload } from '../dto/user/IJwtTokenPayload';
 
-export function handleUserAuthToken(
+export function verifyJwtToken(
   req: Request,
   res: Response,
   next: NextFunction
