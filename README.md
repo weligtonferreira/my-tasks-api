@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://nodejs.org/en" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="200" alt="NodeJS Logo" /></a>
+  <a href="https://nodejs.org/en" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="100" alt="NodeJS Logo" /></a>
 </p>
 
 # MyTasks API 🎯
