@@ -39,6 +39,16 @@ $ docker compose up -d
 $ docker compose down
 ```
 
+## 🧩 Running Prisma Migrations
+
+```bash
+# generate prisma model objects
+$ npx prisma generate
+
+# generate migrations
+$ npx prisma migrate dev
+```
+
 ## 🚀 Running the app
 
 ```bash
